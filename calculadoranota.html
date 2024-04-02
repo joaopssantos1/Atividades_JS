@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo Notas</title>
+</head>
+<body>
+    <script>
+        const nota1 = parseFloat(prompt("Digite a primeira nota"));
+        const nota2 = parseFloat(prompt("Digite a segunda nota"));
+        const nota3 = parseFloat(prompt("Digite a terceira nota"));
+        const nota4 = parseFloat(prompt("Digite a quarta nota"));
+ 
+        const media = (nota1 + nota2 + nota3 + nota4) / 4;
+ 
+        if (media >= 7.0) {
+            console.log(`Aluno aprovado! Média: ${media.toFixed(2)}`);
+        } else {
+            const notaExame = parseFloat(prompt("Digite a nota do exame:"));
+            const novaMedia = (media + notaExame) / 2;
+ 
+            if (novaMedia >= 5.0) {
+                console.log(`Aluno aprovado em exame! Nova média: ${novaMedia.toFixed(2)}`);
+            } else {
+                console.log(`Aluno reprovado! Nova média: ${novaMedia.toFixed(2)}`);
+            }
+        }
+    </script>
+</body>
+</html>

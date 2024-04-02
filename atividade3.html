@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Salário do Vendedor</title>
+</head>
+<body>
+    <script>
+        var nomeVendedor = prompt("Digite o nome do vendedor:");
+        var salarioFixo = parseFloat(prompt("Digite o salário fixo do vendedor:"));
+        var totalVendas = parseFloat(prompt("Digite o total de vendas (em dinheiro) efetuadas pelo vendedor no mês:"));
+
+        var comissao = totalVendas * 0.15;
+        var salarioFinal = salarioFixo + comissao;
+
+        console.log("Nome do vendedor: " + nomeVendedor);
+        console.log("Salário fixo: R$ " + salarioFixo.toFixed(2));
+        console.log("Salário final do mês: R$ " + salarioFinal.toFixed(2));
+    </script>
+</body>
+</html>

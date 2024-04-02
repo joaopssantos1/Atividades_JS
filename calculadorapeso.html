@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Peso Ideal</title>
+</head>
+<body>
+    <script>
+        var altura = parseFloat(prompt("Digite a altura em metros:"));
+        var sexo = prompt("Digite o sexo (homem ou mulher):");
+ 
+        if (sexo === "homem") {
+            var pesoIdealHomem = 72.7 * altura - 58;
+            console.log("O peso ideal para um homem com altura de " + altura + " metros é: " + pesoIdealHomem.toFixed(2) + " kg");
+        } else if (sexo === "mulher") {
+            var pesoIdealMulher = 62.1 * altura - 44.7;
+            console.log("O peso ideal para uma mulher com altura de " + altura + " metros é: " + pesoIdealMulher.toFixed(2) + " kg");
+        } else {
+            console.log("Sexo inválido.");
+        }
+    </script>
+</body>
+</html>
