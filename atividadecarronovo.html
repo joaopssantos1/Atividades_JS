@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Valor da Venda</title>
+    <meta name="desctiption" content="Valor da Venda">
+    <meta name="keywords" content="venda, preço , custo, percentual">
+</head>
+
+<body>
+    <h2>Calculadora de Preço de Venda</h2>
+    <label for="precoCusto">Preço de Custo:</label>
+    <input type="number" id="precoCusto">
+    <label for="percentualAcrescimo">Porcentagem de Acréscimo:</label>
+    <input type="number" id="percentualAcrescimo">
+    <button onclick="calcularPrecoVenda()">Calcular</button>
+    <p id="resultadoPrecoVenda"></p>
+    
+    <h2>Calculadora de Custo ao Consumidor de um Carro</h2>
+    <label for="custoFabrica">Custo de Fábrica do Carro:</label>
+    <input type="number" id="custoFabricaCarro">
+    <button onclick="calcularCustoConsumidor()">Calcular</button>
+    <p id="resultadoCustoConsumidor"></p>
+    
+    <script>
+    // Função que calcula o preço de venda com base no preço de custo e no percentual de acréscimo
+    function calcularPrecoVenda() {
+        let precoCusto = document.getElementById("precoCusto").value;
+        let percentualAcrescimo = document.getElementById("percentualAcrescimo").value;
+        let precoVenda = precoCusto * (1 + percentualAcrescimo / 100);
+        document.getElementById("resultadoPrecoVenda").innerHTML = "O preço de venda do produto é: " + precoVenda;
+    }
+    
+    // Função que calcula o custo ao consumidor de um carro com base no custo de fábrica
+    function calcularCustoConsumidor() {
+        let custoFabrica = document.getElementById("custoFabricaCarro").value;
+        const percentualDistribuidor = 0.28; // Porcentagem do distribuidor
+        const percentualImposto = 0.04; // Porcentagem do imposto
+        let impostos = custoFabrica * percentualImposto;
+        let custoConsumidor = parseFloat(custoFabrica) + parseFloat(impostos) + parseFloat(custoFabrica * percentualDistribuidor);
+        document.getElementById("resultadoCustoConsumidor").innerHTML = "O custo ao consumidor do carro é: " + custoConsumidor;
+    }
+    </script>
+    
+
+</body>
+
+</html>

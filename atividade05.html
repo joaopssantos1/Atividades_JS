@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+function verificarParOuImpar() {
+    let numero = prompt("Insira um número inteiro:");
+ 
+    // Verificar se o número inserido é um número inteiro válido
+    if (numero === null || numero.trim() === "" || isNaN(numero)) {
+        alert("Por favor, insira um número inteiro válido.");
+        verificarParOuImpar(); // Chamada recursiva para solicitar novamente um número
+        return;
+    }
+ 
+    // Converter o número inserido para um número inteiro
+    numero = parseInt(numero);
+ 
+    // Determinar se o número é par ou ímpar
+    if (numero % 2 === 0) {
+        alert(numero + " é um número par.");
+    } else {
+        alert(numero + " é um número ímpar.");
+    }
+}
+ 
+verificarParOuImpar();
+
+</script>
+    
+</body>
+</html>
