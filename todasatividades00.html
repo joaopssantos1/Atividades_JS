@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades JS</title>
+   
+</head>
+<body>
+    <div class="text">
+        <h1>Atividades em Javascript e HTML</h1>
+    </div>
+    <div class="colum1">
+        <input type="button" value="Notas" onclick="showForm('formNota')" class="button">
+        <input type="button" value="Idade" onclick="showForm('formIdade')" class="button">  
+        <input type="button" value="Salário" onclick="showForm('formSal')" class="button">
+        <input type="button" value="Par ou Impar" onclick="showForm('formPar')" class="button">
+    </div>    
+    <div class="colum2">
+        <input type="button" value="Valores" onclick="showForm('formVal')" class="button">
+        <input type="button" value="IMC" onclick="showForm('formImc')" class="button">
+        <input type="button" value="Produtos" onclick="showForm('formProdutos')" class="button">
+    </div>
+ 
+    <form action="" id="formNota" style="display: none;">
+        <label for="#">Diga as suas notas:</label>
+        <input type="text"  id="nota_01">
+        <input type="text"  id="nota_02">
+        <input type="text"  id="nota_03">
+        <input type="text"  id="nota_04">
+        <input type="button" value="Enviar" onclick="opneFnotas()">
+    </form>
+ 
+    <form action="" id="formIdade" style="display: none;">
+        <label for="#">Diga sua idade:</label>
+        <input type="text" id="idade">
+        <input type="button" value="Enviar" onclick="openFidade()">
+    </form>
+ 
+    <form action="" id="formSal" style="display: none;">
+        <label for="#">Digite Informações:</label>
+        <input type="text"  id="nome">
+        <input type="text"  id="salario">
+        <input type="text" id="vendas">
+        <input type="button" value="Enviar" onclick="openFsal()">
+    </form>
+ 
+    <form action="" id="formPar" style="display: none;">
+        <label for="#">Insira um número</label>
+        <input type="text"  id="numero">
+        <input type="button" value="Enviar" onclick="openFpar()">
+    </form>
+ 
+    <form action="" id="formVal" style="display: none;">
+        <label for="#">Escolha dois valores:</label>
+        <input type="text"  id="valor_01">
+        <input type="text"  id="valor_02">
+        <input type="button" value="Enviar" onclick="openFval()">
+    </form>
+ 
+    <form action="" id="formImc" style="display: none;">
+        <label for="#">Informações necessárias:</label>
+        <input type="text" id="peso">
+        <input type="text" " id="altura">
+        <input type="button" value="Enviar" onclick="openFimc()">
+    </form>
+ 
+    <form action="" id="formProdutos" style="display: none;">
+        <label for="#">Digite o valor do carro:</label>
+        <input type="text"  id="carro">
+        <input type="button" value="Enviar" onclick="openFprodutos()">
+    </form>
+   
+    <script>
+        function showForm(formId) {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.style.display = 'none';
+            });
+ 
+            const formToShow = document.getElementById(formId);
+            if (formToShow) {
+                formToShow.style.display = 'block';
+            }
+        }
+        function opneFnotas() {        
+            let n1 = Number(document.getElementById("nota_01").value);
+            let n2 = Number(document.getElementById("nota_02").value);
+            let n3 = Number(document.getElementById("nota_03").value);
+            let n4 = Number(document.getElementById("nota_04").value);
+           
+            let soma = n1 + n2 + n3 + n4;
+            let media = soma / 4;
+           
+            if (media >= 7.0) {
+                alert('Aprovado com média: ' + media.toFixed(2));
+            } else {
+                let notaProvaRecuperacao = parseFloat(prompt("NOTA PROVA DE RECUPERAÇÃO"));
+                let novaMedia = (media + notaProvaRecuperacao) / 2;
+   
+                if (novaMedia >= 5.0) {
+                    alert('Aluno aprovado na recuperação com nova média: ' + novaMedia.toFixed(2));
+                } else {
+                    alert('Aluno reprovado na recuperação com nova média: ' + novaMedia.toFixed(2));
+                }
+            }
+        }
+        function openFidade() {
+            let idade;
+            do {    
+                idade = parseInt(document.getElementById("idade").value);
+   
+                if(isNaN(idade) || !Number.isInteger(idade) ||  idade <= 0){
+                    alert("Essa idade não é válida!")
+                }
+            } while (isNaN(idade) || !Number.isInteger(idade));
+               
+            if(idade >= 18) {
+                alert("Maior de idade!")
+            }
+            else if(idade < 18) {
+                alert("Menor de idade!")
+            }
+        }
+        function openFsal(){
+            alert("Boa tarde, entregue algumas informações para saber o balanço geral do seu rendimento na empresa!");
+   
+            let nameVendedor = document.getElementById("nome").value;
+            let salario = parseFloat(document.getElementById("salario").value);
+            let vendas = parseFloat(document.getElementById("vendas").value);
+   
+            let comissão = vendas * 0.15;
+            let totalmes = comissão + salario;
+   
+            alert("Muito bem " + nameVendedor + " seu salário fixo e de: R$" + salario + " e o seu salário total no mês foi de: R$" + totalmes);
+        }
+        function openFpar() {
+            let numero;
+            do {
+                numero = parseInt(document.getElementById("numero").value);
+           
+                if (isNaN(numero) || !Number.isInteger(numero)) {
+                    alert("Não é um número inteiro! Digite novamente");
+                }    
+            } while (isNaN(numero) || !Number.isInteger(numero));
+           
+            if (numero % 2 === 0) {
+                alert(numero + " é um número par");
+            } else {
+                alert(numero + " é um número ímpar");
+            }
+        }
+        function openFval() {
+            let A = parseFloat(document.getElementById("valor_01").value);
+            let B = parseFloat(document.getElementById("valor_02").value);
+   
+            [A, B] = [B, A]; //desestrutução com array
+   
+            alert('O novo valor de A é: ' + A + ' O novo valor de B é: ' + B + '.');
+        }
+        function openFimc() {
+            let peso = parseFloat(document.getElementById("peso").value);
+            let altura = parseFloat(document.getElementById("altura").value);
+   
+            if(isNaN(peso) || peso <= 0 || isNaN(altura) || altura <= 0){
+                alert("Por favor, insira números válidos para peso e altura.");
+            }else {
+   
+                let imc = peso / (altura ** 2);
+   
+                if(imc < 18.5) {
+                    alert('Abaixo do peso!');
+                } else if(imc >= 18.5 && imc <= 24.9) {
+                    alert('Peso normal!');
+                } else if(imc >= 25 && imc <= 29.9) {
+                    alert('Sobrepeso!');
+                } else if(imc >= 30 && imc <= 34.9) {
+                    alert('Obesidade grau 01');
+                } else if(imc >= 35 && imc <= 39.9) {
+                    alert('Obesidade grau 02');
+                } else if(imc >= 40) {
+                    alert('Obesidade grau 03');
+                }
+            }
+        }
+        function openFprodutos() {
+            let valor = parseFloat(document.getElementById("carro").value);
+            let porcentagem1 = 28;
+            let porcentagem2 = 45;
+            let valor1 = valor + (valor * (porcentagem1/100));
+            let novo_valor = valor + (valor1 * (porcentagem2/100));
+            alert(`O preço do carro é ${novo_valor}`);
+        }
+    </script>
+</body>
+</html>
+ 

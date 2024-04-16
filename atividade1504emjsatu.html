@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades JS</title>
+   
+</head>
+<body>
+    <script src="atividade1504.js"></script>
+    <div class="text">
+        <h1>Atividades em Javascript e HTML</h1>
+    </div>
+    <div class="colum1">
+        <input type="button" value="Notas" onclick="showForm('formNota')" class="button">
+        <input type="button" value="Idade" onclick="showForm('formIdade')" class="button">  
+        <input type="button" value="Salário" onclick="showForm('formSal')" class="button">
+        <input type="button" value="Par ou Impar" onclick="showForm('formPar')" class="button">
+    </div>    
+    <div class="colum2">
+        <input type="button" value="Valores" onclick="showForm('formVal')" class="button">
+        <input type="button" value="IMC" onclick="showForm('formImc')" class="button">
+        <input type="button" value="Produtos" onclick="showForm('formProdutos')" class="button">
+    </div>
+ 
+    <form action="" id="formNota" style="display: none;"> 
+        <label for="#">Diga as suas notas:</label>
+        <input type="text" id="nota_01">
+        <input type="text" id="nota_02">
+        <input type="text" id="nota_03">
+        <input type="text" id="nota_04">
+        <input type="button" value="Enviar" onclick="opneFnotas()">
+    </form>
+ 
+    <form action="" id="formIdade" style="display: none;"> 
+        <label for="#">Diga sua idade:</label>
+        <input type="text" id="idade">
+        <input type="button" value="Enviar" onclick="openFidade()">
+    </form>
+ 
+    <form action="" id="formSal" style="display: none;"> 
+        <label for="#">Digite Informações:</label>
+        <input type="text" id="nome">
+        <input type="text" id="salario">
+        <input type="text" id="vendas">
+        <input type="button" value="Enviar" onclick="openFsal()">
+    </form>
+ 
+    <form action="" id="formPar" style="display: none;"> 
+        <label for="#">Insira um número</label>
+        <input type="text"  id="numero">
+        <input type="button" value="Enviar" onclick="openFpar()">
+    </form>
+ 
+    <form action="" id="formVal" style="display: none;"> 
+        <label for="#">Escolha dois valores:</label>
+        <input type="text" id="valor_01">
+        <input type="text" id="valor_02">
+        <input type="button" value="Enviar" onclick="openFval()">
+    </form>
+ 
+    <form action="" id="formImc" style="display: none;"> 
+        <label for="#">Informações necessárias:</label>
+        <input type="text" id="peso">
+        <input type="text" id="altura">
+        <input type="button" value="Enviar" onclick="openFimc()">
+    </form>
+ 
+    <form action="" id="formProdutos" style="display: none;"> 
+        <label for="#">Digite o valor do carro:</label>
+        <input type="text" id="carro">
+        <input type="button" value="Enviar" onclick="openFprodutos()">
+    </form>
+</body>
+
+</html>
+   
